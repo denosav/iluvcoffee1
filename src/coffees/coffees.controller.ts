@@ -5,7 +5,7 @@ import { response } from 'express';
 export class CoffeesController {
     @Get("")
     findAll (@Res() response) {
-        return "This action returns all coffees";
+        response.status(200).send(`This action returns all coffees`);
     }
 
     @Get(":id")
