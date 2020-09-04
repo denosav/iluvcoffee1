@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, NotFoundException } from '@nestjs/common';
 //import { INSTANCE_ID_SYMBOL } from '@nestjs/core/injector/instance-wrapper';
 import { Coffee } from "./entities/coffee.entity";
 
@@ -18,14 +18,19 @@ export class CoffeesService {
     }
     
     findOne (id: string) {
-        return this.coffees.find(item => item.id === +id);
+        throw `A random error`;
+        const coffee = this.coffees.find(item => item.id === +id);
+        if (!coffee) {
+            throw new NotFoundException(`Coffee #${id} not found`);
+        }
+        return coffee;
     }
     
-    create(createCoffeeDto: any) {
+    create (createCoffeeDto: any) {
         this.coffees.push(createCoffeeDto);
     }
     
-    update (id: string, updateCoffeeDto: any){
+    update (id: string, updateCoffeeDto: any) {
         const existingCoffee = this.findOne (id);
         if (existingCoffee){
             // update this existing entity
