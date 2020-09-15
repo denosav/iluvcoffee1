@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesController } from './coffees/coffees.controller';
+<<<<<<< HEAD
 import { TypeOrmModule } from '@nestjs/typeorm';
 // import {CoffeesModule} from "./coffees/coffees.module"
 
@@ -20,6 +21,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
   ],
   controllers: [AppController, CoffeesController],
+=======
+import { CoffeesService } from './coffees/coffees.service';
+import { CoffeesModule } from './coffees/coffees.module';
+
+@Module({
+  imports: [CoffeesModule],
+  controllers: [AppController],
+>>>>>>> 47d7899012f80e333ab39476cfb11aa7c993ebc9
   providers: [AppService],
 })
 export class AppModule {}
