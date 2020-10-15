@@ -8,16 +8,6 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CoffeesService {
-// Removing the below mock data store
-/*    private coffees: Coffee[] = [
-        {
-            id: 1,
-            name: 'Shipwreck Roast',
-            brand: 'Buddy Brew',
-            flavors: ['chocolate', 'vanilla'],
-        }
-    ];
-*/
 
     constructor (
         @InjectRepository(Coffee)
