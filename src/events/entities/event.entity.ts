@@ -1,4 +1,4 @@
-import { Column, Entity, Event, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 @Index(['name', 'type'])
 @Entity()

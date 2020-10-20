@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Connection, Repository } from 'typeorm';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
+import { Event } from 'src/events/entities/event.entity';
 
 @Injectable()
 export class CoffeesService {
