@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
 import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
       synchronize: true, // your entities will be synced with the database (ORM will map entity definitions to corresponding SQL tabled), every time you run the application (recommended: disable in the production)
     }),
     CoffeeRatingModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
