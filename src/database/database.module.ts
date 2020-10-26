@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { Module, DynamicModule } from '@nestjs/common';
+import { ConnectionOptions, createConnection } from 'typeorm';
 
 @Module({})
 export class DatabaseModule {
