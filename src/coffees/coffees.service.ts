@@ -9,8 +9,9 @@ import { Connection, Repository } from 'typeorm';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { Event } from 'src/events/entities/event.entity';
 import { COFFEE_BRANDS } from './coffees-constants';
+import { ConfigService } from '@nestjs/config';
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable({ scope: Scope.DEFAULT })
 export class CoffeesService {
 
     constructor (
@@ -20,8 +21,11 @@ export class CoffeesService {
         private readonly flavorRepository: Repository<Flavor>,
         private readonly connection: Connection,
         @Inject(COFFEE_BRANDS) coffeeBrands: string[],
+        private readonly configService: ConfigService,
     ) {
-        console.log('CoffeesService instantiated');
+//        console.log('CoffeesService instantiated');
+        const databaseHost = this.configService.get<string>('DATABASE_HOST', 'localhost');
+        console.log(databaseHost);
     }
 
     findAll (paginationQuery: PaginationQueryDto) {
