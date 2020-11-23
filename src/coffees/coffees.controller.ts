@@ -10,6 +10,7 @@ import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { Public } from 'src/common/decorators/public.decorator';
 import { ParseIntPipe } from 'src/common/pipes/parse-int.pipe';
 import { Protocol } from 'src/common/decorators/protocol.decorator';
+import { ApiForbiddenResponse, ApiResponse } from '@nestjs/swagger';
 
 //@UsePipes(ValidationPipe)
 @Controller('coffees')
@@ -22,6 +23,8 @@ export class CoffeesController {
     }
 
 //    @SetMetadata('isPublic', true)
+//    @ApiResponse({ status: 403, description: 'Forbidden' })
+    @ApiForbiddenResponse({ description: 'Forbidden' })
     @Public()
     @UsePipes(ValidationPipe)
     @Get("")
