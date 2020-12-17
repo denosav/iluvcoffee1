@@ -21,8 +21,9 @@ import coffeesConfig from './config/coffees.config';
     CoffeesService, {
       provide: COFFEE_BRANDS,
       useFactory: () => ['buddy brew', 'nescafe'],
-      scope: Scope.TRANSIENT,
-/*      useFactory: async (connection: Connection): Promise<string[]> => {
+//      scope: Scope.TRANSIENT,
+      scope: Scope.DEFAULT,
+  /*    useFactory: async (connection: Connection): Promise<string[]> => {
         // const coffeeBrands = await connection.query('SELECT * ...');
         const coffeeBrands = await Promise.resolve(['buddy brew', 'nescafe']);
         console.log('[!] Async factory');

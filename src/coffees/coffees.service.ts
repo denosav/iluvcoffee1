@@ -7,7 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Connection, Repository } from 'typeorm';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
-import { Event } from 'src/events/entities/event.entity';
+// import { Event } from 'src/events/entities/event.entity';
 import { COFFEE_BRANDS } from './coffees-constants';
 import { ConfigService, ConfigType } from '@nestjs/config';
 import coffeesConfig from './config/coffees.config';
@@ -95,13 +95,13 @@ export class CoffeesService {
         try{
             coffee.recommendations++;
 
-            const recommendEvent = new Event();
-            recommendEvent.name = 'recommend_coffee';
-            recommendEvent.type = 'coffee';
-            recommendEvent.payload = {coffeeId: coffee.id};
+//            const recommendEvent = new Event();
+//            recommendEvent.name = 'recommend_coffee';
+//            recommendEvent.type = 'coffee';
+//            recommendEvent.payload = {coffeeId: coffee.id};
 
             await queryRunner.manager.save(coffee);
-            await queryRunner.manager.save(recommendEvent);
+//            await queryRunner.manager.save(recommendEvent);
 
             await queryRunner.commitTransaction();
         } catch (err) {
