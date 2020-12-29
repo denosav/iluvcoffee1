@@ -6,7 +6,7 @@ export class Event extends mongoose.Document {  // Note "entity" was removed fro
   @Prop()
   type: string;
 
-  @Prop()
+  @Prop({ index: true })
   name: string;
 
 //  @Prop(mongoose.SchemaTypes.Mixed)
@@ -15,3 +15,4 @@ export class Event extends mongoose.Document {  // Note "entity" was removed fro
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
+EventSchema.index({ name: 1, type: -1 })
